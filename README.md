@@ -1,49 +1,53 @@
-🔐 CipherVault
+# 🔐 CipherVault
 
-CipherVault is a secure folder encryption tool for Python. It encrypts file contents, filenames, and even password files, making them safe to store or transfer. Original files are replaced during the process.
+Encrypt folders, filenames, and password files with Python. Original files are replaced.
 
-⚙️ Features
+---
 
-🔒 Encrypt and decrypt entire folders
+## ⚙️ Features
 
-📝 Preserve filenames in encrypted form
+* 🔒 Encrypt/decrypt folders
+* 📝 Preserve filenames
+* 🛡️ Encrypt password files for safe transfer
+* 🔑 Password-derived keys (scrypt + Fernet)
+* 👀 Dry-run preview
+* 🗄️ Automatic salt management
 
-🛡️ Encrypt sensitive password files for safe transport
+---
 
-🔑 Password-based key derivation with scrypt
+## 🛠️ Requirements
 
-👀 Dry-run mode to preview changes without touching files
-
-🗄️ Automatic salt management for consistent encryption
-
-🛠️ Requirements
+```bash
+Python 3.7+
 pip install cryptography
+```
 
-🚀 Usage
+---
+
+## 🚀 Usage
+
+```bash
 python ciphervault.py <encrypt|decrypt> <folder> [--salt-file SALT_FILE] [--dry-run]
+```
 
+### Examples
 
-Examples:
-
-# 🔒 Encrypt a folder
+```bash
+# 🔒 Encrypt
 python ciphervault.py encrypt /path/to/folder
 
-# 🔓 Decrypt a folder
+# 🔓 Decrypt
 python ciphervault.py decrypt /path/to/folder
 
-# 👀 Dry-run to list files only
+# 👀 Dry-run
 python ciphervault.py encrypt /path/to/folder --dry-run
+```
 
-⚠️ Notes
+---
 
-This tool is destructive: it replaces original files with encrypted versions.
+## ⚠️ Notes
 
-Password-protected files can be safely moved or stored after encryption.
-
-Always back up important data before encrypting.
-
-Salt file ensures consistent encryption across sessions (default: .crypto_salt).
-
-💡 Recommended Use
-
-Use CipherVault for personal file encryption, secure folder storage, password file protection, or simple password-protected backups. Lightweight, dependency-free except for cryptography, and cross-platform.
+* Destructive: replaces original files
+* Encrypted password files are safe to move/store
+* Backup important data first
+* Salt file default: `.crypto_salt`
